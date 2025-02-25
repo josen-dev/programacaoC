@@ -2,24 +2,23 @@
 #include <string.h>
 
 int main(){
-char estado1, codigo1[20], cidade1[50], estado2, codigo2[20], cidade2[50]; // Use arrays for strings
+char estado1, codigo1[20], cidade1[50], estado2, codigo2[20], cidade2[50]; // Usar arrays para strings
 int populacao1, pontost1, populacao2, pontost2;
 float area1, pib1, area2, pib2;
 
 // Carta 1
-printf("\n"); // Skip a line at the beggining
+printf("\n"); // Pular linha no começo para ficar mais legal
 printf("Carta 1: \n");
 printf("Estado: %c");
-scanf(" %c", &estado1); // Add space before %c to consume newline
+scanf(" %c", &estado1); // Adicionei espaço antes de %c para consumir nova linha
 
-printf("Código: %s");
+printf("Código: ");
 scanf("%19s", codigo1); // %19x Limit input size
-getchar(); //limpar antes de usar fgets
+getchar(); //limpa antes de usar fgets
 
 printf("Nome da Cidade: ");
-//scanf("%49s", cidade1); // Limit input size
-fgets(cidade1, sizeof(cidade1), stdin);
-cidade1[strcspn(cidade1, "\n")] = '\0'; // Remove o '\n'
+fgets(cidade1, sizeof(cidade1), stdin); // usando fgets para ter um nome composto
+cidade1[strcspn(cidade1, "\n")] = '\0'; // Remove o '\n' //usei para remover o \n do final senão contaria como um caractere (tive que adicionar a biblioteca string.h no começo)
 
 printf("População: ");
 scanf("%d", &populacao1);
@@ -34,20 +33,19 @@ printf("Número de Pontos Turísticos: ");
 scanf("%d", &pontost1);
 
 // Carta 2
-printf("\n"); // Skip a line at the beggining of the 2nd card
+printf("\n"); // Pula uma linha
 printf("Carta 2: \n");
 printf("Estado: %c");
-scanf(" %c", &estado2); // Add space before %c to consume newline
+scanf(" %c", &estado2); // Adicionei espaço antes de %c para consumir nova linha
 
-printf("Código: %s");
-scanf("%19s", codigo2); // %19x Limit input size
+printf("Código: ");
+scanf("%19s", codigo2); // %19x limita o input e evita erros
 getchar(); //limpar antes de usar fgets
 
 
 printf("Nome da Cidade: ");
-//scanf("%49s", cidade2); // Limit input size
-fgets(cidade2, sizeof(cidade2), stdin);
-cidade2[strcspn(cidade2, "\n")] = '\0'; // Remove o '\n'
+fgets(cidade2, sizeof(cidade2), stdin); // usando fgets para ter um nome composto
+cidade2[strcspn(cidade2, "\n")] = '\0'; // Remove o '\n' //usei para remover o \n do final senão contaria como um caractere (tive que adicionar a biblioteca string.h no começo)
 
 printf("População: ");
 scanf("%d", &populacao2);
